@@ -8,6 +8,7 @@ mongodb.connect(url,function(e,db){
         lastName: process.argv[3]
     };
     collection.insert(obj,function(e,data){
+        if(e) throw e;
         console.log(JSON.stringify(obj));
         db.close();
     });
